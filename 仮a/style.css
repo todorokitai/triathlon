@@ -1,0 +1,94 @@
+body{
+    background-color: #FFF5EE;
+    overflow-x: hidden; 
+}
+
+/* header */
+* {
+    margin:0; padding:0;
+}
+header {
+    height: 100px;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #F0EDEB;
+    font-family: poppins-semibold;
+    position: fixed;
+    top:0
+}
+header .headline{
+    line-height: 100px;
+    float: left;
+    font-size: 30px;
+    margin-left: 80px;
+}
+.nav-list {
+    line-height: 100px;
+    float: left;
+    margin-left: 30px;
+    list-style: none;
+}
+.nav-list-item {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+.nav-list-item a{
+    color: black;
+    text-decoration: none;
+    font-family: "メイリオ", "ヒラギノ角ゴシック";
+}
+.nav-list-item a:hover{
+    color: orange;
+}
+
+/* main */
+main {
+    margin:  10px 60px 20px 60px;
+}
+
+main p{
+    margin-left: 30px;
+    font-family: "メイリオ", "ヒラギノ角ゴシック";
+}
+
+main h2{
+    padding: 0.4em 0.5em;
+    color: #494949;
+    background: #f4f4f4;
+    border-left: solid 5px grey;
+    border-bottom: solid 3px #d7d7d7;
+    margin-bottom: 5px;
+}
+
+
+/* footer */
+footer{
+    width: 100%;
+    height: 100px;
+    /* background: url("https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-black-minimalist-atmospheric-wooden-background-backgroundwooden-backgroundtree-texture-image_77053.jpg"); */
+    background-color: #F0EDEB;
+    /* background-color: black; */
+    color: black;
+    padding:80px;
+}
+ul.footer-menu li {
+    display: inline;
+}
+ul.footer-menu a{
+    color: black;
+    text-decoration: none;
+}
+ul.footer-menu a:hover{
+    color: orange;
+    
+}
+.instagram,.twitter{
+    color: black;
+}
+.instagram:hover{
+    color: rgb(215, 117, 215);
+}
+.twitter:hover{
+    color: aqua;
+}    

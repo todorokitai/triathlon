@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <script>
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        }
+        if (!isTouchDevice()) {
+            // タッチデバイス以外の場合の処理(パソコンとか)
+            // window.location.href = "forPc/index.html";
+        }
+        else; // タッチデバイスの場合の処理(スマホとか)→そのままこのhtmlコードの実行
+    </script> -->
+    <title>会津大学 トライアスロン部</title>
+    <link href="css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script src="js/header.js"></script>
+    <main>
+        <h3 id="title" style="margin-top: 90px;"></h3>
+        <div id="text-container"></div>
+    </main>
+    <script>
+        const para = decodeURIComponent(location.search.split("?")[1]);
+        console.log(para)
+        let [date,event,menu,changeMenu]=para.split("-");
+        console.log(date)
+        console.log(event)
+        console.log(menu)
+        console.log(changeMenu)
+        let title=document.getElementById('title')
+        title.textContent = date+"の練習メニュー";
+
+        
+        if(event=="休み"){
+            location.href="https://www.youtube.com/"
+        }
+        
+        //短大練習の時textFileUrlを変更しなければならない
+        const today = new Date();
+        const month = today.getMonth()+1;
+        const day = today.getDay();
+        if (month >= 4 && month <= 8 && day === 1) {//4月から8月の間で今日が月曜日なら
+            menu = "短大/"+menu;    
+        }
+        let textFileUrl;
+        if(changeMenu=="FALSE"){
+            textFileUrl = "https://todorokitai.github.io/triathlon/menu/"+event+"/"+menu+".txt";
+        }
+        else{
+            textFileUrl = "https://todorokitai.github.io/triathlon/menu/"+event+"/変更.txt";
+        }
+        
+        console.log(textFileUrl)
+
+        fetch(textFileUrl)
+        .then(response => response.text())
+        .then(text => {
+            // 改行文字をHTMLの改行要素に置き換える
+            text = text.replace(/\n/g, '<br>');
+            // 読み込んだテキストをHTMLの<div>に表示する
+            document.getElementById('text-container').innerHTML = text;
+        });
+    </script>
+</body>
+</html>

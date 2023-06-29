@@ -1,0 +1,18 @@
+.list {
+    padding: 0;
+    margin: 0;
+}
+.list li {
+  display: inline-block;
+}
+
+.list li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.list li a:hover{
+    color: red;
+}

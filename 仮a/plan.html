@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header><script src="header.js"></script></header>
+    <main>
+        <h2 style="margin-top: 140px;">2023年度年間計画</h2>
+        <p>※こちらは現時点(2023年5月)の予定です</p>
+        <div id="plan"></div>
+        <script>
+            const table = document.createElement('table');
+            table.setAttribute('border', '1');
+            table.style.textAlign = 'center';
+            
+            const headerRow = document.createElement('tr');
+            const headers = ['日程', '大会-イベント'];
+            const widths = ['35%', '80%'];
+            
+            for (let i = 0; i < headers.length; i++) {
+              const th = document.createElement('th');
+              th.textContent = headers[i];
+              th.setAttribute('width', widths[i]);
+              headerRow.appendChild(th);
+            }
+            
+            table.appendChild(headerRow);
+            
+            const dataRows = [
+              ['4月','会津大学入学式'],
+              ['','会津短期大学入学式'],
+              ['', '部内ミニトライアスロン',],
+              ['', '郡山シティマラソン'],
+              ['5月','5月イベント'],
+              ['', '部内デュアスロン'],
+              ['', '福島シティマラソン'],
+              ['6月','会津磐梯山ウルトラマラソン'],
+              ['','Mt.富士ヒルクライム'],
+              ['','新入生歓迎会・宿泊イベント'],
+              ['','みなと酒田トライアスロンおしんレース'],
+              ['','東日本トライアスロン選手権那須塩原大会'],
+              ['7月','七ヶ浜トライアスロン'],
+              ['','かえるの郷トライアスロン (川内村)'],
+              ['','長井トライアスロン'],
+              ['','7月イベント'],
+              ['','太平洋トライアスロン'],
+              ['8月','合宿'],
+              ['','うつくしまトライアスロン'],
+              ['9月','佐渡トライアスロン'],
+              ['','希望の森トライアスロン inやながわ'],
+              ['','あぶくま洞ヒルクライム'],
+              ['','第15回ミニトライアスロン2023'],
+              ['','9月イベント'],
+              ['','ツール・ド・東北'],
+              ['','村上トライアスロン'],
+              ['10月','鶴ヶ城マラソン'],
+              ['','平田村タイムトライアル'],
+              ['','10月イベント'],
+              ['11月','学祭(4大)'],
+              ['','ツール・ド・はなわ'],
+              ['','小野こまちロードレース'],
+              ['','もてぎエンデューロ 秋'],
+              ['','学祭打ち上げ'],
+              ['','宇都宮マラソン'],
+              ['12月','あづまクロスカントリー'],
+              ['','郡山クリスマスあおぞらマラソン'],
+              ['','12月イベント'],
+              ['','練習納め'],
+              ['','OBOG 忘年会'],
+              ['1月','新年会'],
+              ['','1月イベント'],
+              ['2月','2月イベント(追いコン)'],
+              ['','いわきサンシャインマラソン'],
+              ['3月','のっとれ松代城 卒業旅行'],
+              ['','会津短大卒業式'],
+              ['','会津大学卒業式'],
+              ['','3月イベント'],
+            ];
+            
+            for (let i = 0; i < dataRows.length; i++) {
+              const dataRow = document.createElement('tr');
+              const rowData = dataRows[i];
+            
+              for (let j = 0; j < rowData.length; j++) {
+                const td = document.createElement('td');
+                td.textContent = rowData[j];
+                td.setAttribute('width', widths[j]);
+                dataRow.appendChild(td);
+              }
+            
+              table.appendChild(dataRow);
+            }
+            
+            // テーブルを要素に追加
+            const plan = document.getElementById('plan');
+            plan.appendChild(table);
+        </script>
+    </main>
+    <footer><script src="footer.js"></script></footer>
+</body>
+</html>
