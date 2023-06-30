@@ -40,6 +40,16 @@ main h2{
     .display_PC_main{
         display: block;
     }
+    .display_PHONE_footer{
+        background-color: #F0EDEB;
+    }
+    .display_PHONE_footer a{
+        text-decoration: none;
+        color: #333;
+    }
+    .display_PHONE_footer a:hover{
+        color: red;
+    }
     h1{
         text-align: center;
         margin: 5px 15px 0px 15px;
