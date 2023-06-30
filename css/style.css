@@ -25,7 +25,8 @@ main h2{
     font-family:"メイリオ", "ヒラギノ角ゴシック";
 }
 .display_PHONE_header,
-.display_PHONE_footer{
+.display_PHONE_footer,
+.display_PC_main{
         display: none;
 }
 @media (max-width: 894px) {/*スマホ時の表示*/
@@ -35,7 +36,8 @@ main h2{
         display: none;
     }
     .display_PHONE_header,
-    .display_PHONE_footer{
+    .display_PHONE_footer,
+    .display_PC_main{
         display: block;
     }
     h1{

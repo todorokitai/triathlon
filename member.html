@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        main h2,
         main h3{
             padding: 0.4em 0.5em;
             color: #494949;
             background: #f4f4f4;
-            border-left: solid 5px grey;
+            border-left: solid 5px rgb(179, 165, 165);
             border-bottom: solid 3px #d7d7d7;
             margin-bottom: 5px;
             font-family:"メイリオ", "ヒラギノ角ゴシック";
@@ -28,6 +27,12 @@
             border-radius: 50%;
             width: 180px; 
             height: 180px;
+        }
+        @media (max-width: 894px) {/*スマホ時の表示*/
+            .profile{
+                width: 100px; 
+                height: 100px;
+            }
         }
     </style>
     <link href="css/style.css" rel="stylesheet">
@@ -76,6 +81,7 @@
                     <p>中島 瑞生</p>
                     <div id="profileDisplay"></div>
                 </div>
+                <!-- <div class="display_PHONE_main"></div> -->
                 <div>
                     <img src="profile_img/profile.png" class="profile">
                     <p>今井 佑</p>
@@ -199,8 +205,16 @@
                     <p>玉田 紗楽</p>
                     <div id="profileDisplay"></div>
                 </div>
-                <div></div>
-                <div></div>
+                <div>
+                    <img src="profile_img/profile.png" class="profile">
+                    <p>杉浦 優貴</p>
+                    <div id="profileDisplay"></div>
+                </div>
+                <div>
+                    <img src="profile_img/profile.png" class="profile">
+                    <p>平田 ゆり</p>
+                    <div id="profileDisplay"></div>
+                </div>
             </div>
             <h3>学部1年</h3>
             <div class="member">
@@ -272,6 +286,11 @@
             <div class="member">
                 <div>
                     <img src="profile_img/profile.png" class="profile">
+                    <p>笠間 堅杜</p>
+                    <div id="profileDisplay"></div>
+                </div>
+                <div>
+                    <img src="profile_img/profile.png" class="profile">
                     <p>皆川 綺理</p>
                     <div id="profileDisplay"></div>
                 </div>
@@ -280,7 +299,6 @@
                     <p>青木 伶奈</p>
                     <div id="profileDisplay"></div>
                 </div>
-               <div></div>
                <div></div>
             </div>
             <h3>大学院生</h3>
@@ -350,6 +368,8 @@
                 <div></div>
                 <div></div>
             </div>
+            
+            
         </main>
         <div class="display_PC_footer">
             <iframe src="footer.html" width="100%" height="360px"scrolling="no" frameborder="0"></iframe>
