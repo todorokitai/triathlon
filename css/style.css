@@ -55,8 +55,12 @@ main h2{
         margin: 5px 15px 0px 0px;
         padding-top: 10px;
         background-color: #F0EDEB;
+        float: left;
+        width: 100%;
+        font-size: 23px;
+        
     }
-    main {
+    main{
         margin:  10px 11px 20px 11px;
     }
     main h2{
