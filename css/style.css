@@ -52,7 +52,7 @@ main h2{
     }
     h1{
         text-align: center;
-        margin: 5px 15px 0px 15px;
+        margin: 5px 15px 0px 0px;
         padding-top: 10px;
         background-color: #F0EDEB;
     }
