@@ -50,6 +50,9 @@ main h2{
     .display_PHONE_footer a:hover{
         color: red;
     }
+    .display_PHONE_header{
+        font-size: small;
+    }
     h1{
         text-align: center;
         margin: 5px 15px 0px 0px;
@@ -61,7 +64,8 @@ main h2{
         
     }
     main{
-        margin:  10px 11px 20px 11px;
+        padding-top: 60px;
+        margin:  0px 11px 30px 11px;
     }
     main h2{
         font-size: 20px;
