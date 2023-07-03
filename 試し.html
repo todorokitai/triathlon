@@ -76,15 +76,18 @@
         }
     </style>
     <style>
-      @media (max-width: 894px) {/*スマホ時の表示*/
-        .accordion-area{
-            list-style: none;
-            width: 80%;
-            width: 100%;
-            margin:0 auto;
+      @media (max-width: 894px) {
+        /* スマホ時の表示に関するスタイル */
+        .accordion-area {
+          margin-left: 0; /* 左マージンを除外 */
+          margin-right: 0; /* 右マージンを除外 */
+          padding-left: 0; /* 左パディングを除外 */
+          padding-right: 0; /* 右パディングを除外 */
+          width: 100%;
         }
       }
     </style>
+    
 </head>
 <body>
   <h1 style="text-align:center">会津大学トライアスロン部<br>活動報告</h1>
@@ -105,105 +108,40 @@
 
   <ul class="accordion-area">
       <div id="2023">
-        <? for(let i=1;i<data_2023.length;i++){ ?>
           <li>
           <section>
-            <h1 class="title"><?=data_2023[i][0]?></h1>
+            <h1 class="title">イベント</h1>
             <div class="box" style="white-space: pre-line;">
-              <? let count=1;?>
-              <?for(let j=1;j<4;j++){?>
-                
-                <? if(data_2023[i][count]==""){break;} ?>
-                <strong><p>報告<?=j?>&nbsp;<?=data_2023[i][count]?></p></strong>
-                <p><?=data_2023[i][count+1]?></p>
+                <strong><p>報告1 大橋 陸</strong>
+                <p>
+                  本日は、学生生活で初のいわきへのイベントでした。
+                  天気は晴天だが、エッグジメジメしていて不快な気候であった。
+                  久しぶりの早起き。とても辛い。普段は10時に起きたりしている中の6時おきは体に堪える。
+                  準備をして学校に向かうが、5分前ぐらいについたが二人しかいない。
+                  本当に今日イベントがあるのか?と疑った。
+                  毎度早起きのイベント、大会はみんな時間ほぼぴったりにくるイメージがある。大学生はとても朝に弱いのだ。
+                  いわきまで車で約4時間かけ、アクアマリンふくしまについた。
+                  毎回他の車ではどんな話をして居たのか気になる。
+                  意外かと思われるが私は水族館がとても好きで、アクアマリンふくしまはずっと行きたかったところである。
+                  ちなみに一番好きな魚は、グッピーとエンゼルフィッシュ、ピラルク、ガーである。
+                  いざ入館してみたら水族館というよりは、水族館もあれば遊び場や釣り体験コーナーもありとても充実している。
+                  水族館の入り口にいくとシーラカンスがお出迎えしてくれた。
+                  私は、シー↑ラ↓カ↑ン↓ス↑と謎のイントネーションで叫んでいたら後ろの子も全く同じイントネーションでシャドーイングしていてとても微笑ましかった。この子は将来英語リスニングで満点を取れると思う。
+                  水族館は、とてもよくさまざまな魚がいて、内装もとても良かったが私の好きな魚がいなかったのが残念であった。
+                  そして、時刻はお昼時近くにある小名浜のイオンに向かった。日曜日ということもありとても混んでいた。
+                  さまざまなお店がある中入ったお店は北海道の豚肉を使った丼のお店。初めて見たお店でなかなか無さそうで興味が湧き入っていった。
+                  結果としては微妙であった。値段の割にはというのが率直な感想である。某三重県出身もお気に召されなかったようだった。
+                  やはりデパートやイオンで食べるべきなのはチェーン店であったのかもしれない。
+                  久しぶりの遠出のイベント。とても楽しかった。次回もまた楽しみにしている。幹部と他の運転手に感謝です。
+
+                </p>
                 <hr>
-                <? count+=2; ?>
-              <?}?>
             </div>
           </section>
           </li>
         <?}?>
       </div>
-      <div id="2022">
-        <? for(let i=1;i<data_2022.length;i++){ ?>
-          <li>
-          <section>
-            <h1 class="title"><?=data_2022[i][0]?></h1>
-            <div class="box" style="white-space: pre-line;">
-              <? let count=1;?>
-              <?for(let j=1;j<4;j++){?>
-                
-                <? if(data_2022[i][count]==""){break;} ?>
-                <strong><p>報告<?=j?>&nbsp;<?=data_2022[i][count]?></p></strong>
-                <p><?=data_2022[i][count+1]?></p>
-                <hr>
-                <? count+=2; ?>
-              <?}?>
-            </div>
-          </section>
-          </li>
-        <?}?>
-      </div>
-      <div id="2019">
-        <? for(let i=1;i<data_2019.length;i++){ ?>
-          <li>
-          <section>
-            <h1 class="title"><?=data_2019[i][0]?></h1>
-            <div class="box" style="white-space: pre-line;">
-              <? let count=1;?>
-              <?for(let j=1;j<4;j++){?>
-                
-                <? if(data_2019[i][count]==""){break;} ?>
-                <strong><p>報告<?=j?>&nbsp;<?=data_2019[i][count]?></p></strong>
-                <p><?=data_2019[i][count+1]?></p>
-                <hr>
-                <? count+=2; ?>
-              <?}?>
-            </div>
-          </section>
-          </li>
-        <?}?>
-      </div>
-      <div id="2018">
-        <? for(let i=1;i<data_2018.length;i++){ ?>
-          <li>
-          <section>
-            <h1 class="title"><?=data_2018[i][0]?></h1>
-            <div class="box" style="white-space: pre-line;">
-              <? let count=1;?>
-              <?for(let j=1;j<4;j++){?>
-                
-                <? if(data_2018[i][count]==""){break;} ?>
-                <strong><p>報告<?=j?>&nbsp;<?=data_2018[i][count]?></p></strong>
-                <p><?=data_2018[i][count+1]?></p>
-                <hr>
-                <? count+=2; ?>
-              <?}?>
-            </div>
-          </section>
-          </li>
-        <?}?>
-      </div>
-      <div id="2017">
-        <? for(let i=1;i<data_2017.length;i++){ ?>
-          <li>
-          <section>
-            <h1 class="title"><?=data_2017[i][0]?></h1>
-            <div class="box" style="white-space: pre-line;">
-              <? let count=1;?>
-              <?for(let j=1;j<4;j++){?>
-                
-                <? if(data_2017[i][count]==""){break;} ?>
-                <strong><p>報告<?=j?>&nbsp;<?=data_2017[i][count]?></p></strong>
-                <p><?=data_2017[i][count+1]?></p>
-                <hr>
-                <? count+=2; ?>
-              <?}?>
-            </div>
-          </section>
-          </li>
-        <?}?>
-      </div>
+      
   </ul>
  
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
@@ -221,45 +159,6 @@
       });
       
   </script>
-  <script>
-    const year=document.getElementById("year-select");
-    let year_2023 = document.getElementById("2023");
-    year_2023.style.display = "none";
-    let year_2022 = document.getElementById("2022");
-    year_2022.style.display = "none";
-    let year_2019 = document.getElementById("2019");
-    year_2019.style.display = "none";
-    let year_2018 = document.getElementById("2018");
-    year_2018.style.display = "none";
-    let year_2017 = document.getElementById("2017");
-    year_2017.style.display = "none";
-    function check() {
-        year_2023.style.display = "none";
-        year_2022.style.display = "none";
-        year_2019.style.display = "none";
-        year_2018.style.display = "none";
-        year_2017.style.display = "none";
-        switch (year.value) {
-          case "2023":
-           year_2023.style.display = "block";
-           break;
-          case "2022":
-           year_2022.style.display = "block";
-           break;
-          case "2019":
-           year_2019.style.display = "block";
-           break;
-          case "2018":
-           year_2018.style.display = "block";
-           break;
-          case "2017":
-           year_2017.style.display = "block";
-           break;
-          default:
-           break;
-        }
-    }
-
-  </script>
+  
 </body>
 </html>
