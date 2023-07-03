@@ -3,116 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/image.png">
-    <title>会津大学トライアスロン部</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/hamburger.css" rel="stylesheet">
+    <title>AAA</title>
     <style>
-        @media (max-width: 894px) {/*スマホ時の表示*/
-            .picture img{
-                width: 80%;
-            }
-        }
-        .display_PHONE_header{
-          font-size: small;
+      #year-select {
+        display: block; /* 要素をブロックレベルに表示する */
+        margin: 0 auto; /* 左右のマージンを自動にして、中央に配置する */
+        text-align: center; /* 内容を中央に揃える */
+      }
+        /*アコーディオン全体*/
+        .accordion-area{
+            list-style: none;
+            width: 80%;
+            max-width: 900px;
+            margin:0 auto;
         }
 
+        .accordion-area li{
+            margin: 10px 0;
+        }
+        
+        .accordion-area section {
+        	border: 1px solid #ccc;
+        }
+        
+        /*アコーディオンタイトル*/
+        .title {
+            position: relative;/*+マークの位置基準とするためrelative指定*/
+            cursor: pointer;
+            font-size:1rem;
+            font-weight: normal;
+            padding: 3% 3% 3% 50px;
+            transition: all .5s ease;
+        }
+        
+        /*アイコンの＋と×*/
+        .title::before,
+        .title::after{
+            position: absolute;
+            content:'';
+            width: 15px;
+            height: 2px;
+            background-color: #333;
+            
+        }
+        .title::before{
+            top:48%;
+            left: 15px;
+            transform: rotate(0deg);
+            
+        }
+        .title::after{    
+            top:48%;
+            left: 15px;
+            transform: rotate(90deg);
+        
+        }
+        /*　closeというクラスがついたら形状変化　*/
+        .title.close::before{
+        	transform: rotate(45deg);
+        }
+        
+        .title.close::after{
+        	transform: rotate(-45deg);
+        }
+        
+        /*アコーディオンで現れるエリア*/
+        .box {
+            display: none;/*はじめは非表示*/
+            background: #66d4c9;
+            margin:0 3% 3% 3%;
+            padding: 3%;
+        }
+    </style>
+    <style>
+      @media (max-width: 894px) {/*スマホ時の表示*/
+        .accordion-area{
+            list-style: none;
+            width: 80%;
+            width: 100%;
+            margin:0 auto;
+        }
+      }
     </style>
 </head>
 <body>
-  <header>
-    <div class="display_PC_header">
-        <iframe src="header.html" width="100%" height="170px" scrolling="no" frameborder="0"></iframe>
-    </div>
-    <div class="display_PHONE_header">
-        <h1>会津大学トライアスロン部</div></h1>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="globalMenuSp disabled">
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="about.html">活動</a></li>
-                <li><a href="minitora/minitora2023.html">ミニトライアスロン2023</a></li>
-                <li><a href="member.html">部員</a></li>
-                <li><a href="event.html">年間行事</a></li>
-                <li><a href="blog.html">活動報告</a></li>
-                <li><a href="practice.html">練習</a></li>
-                <li><a href="https://drive.google.com/file/d/1mkalmN-lvBT6-RpK8DEr-Dvu-KuW47Dd/view?usp=drive_link">部員限定</a></li>
-                <li><a href="mail.html">連絡</a></li>
-                <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="img/instagram.png" width="30px" style="padding-bottom: 1%;"></a>&nbsp;
-                <a href="https://twitter.com/aizu_triathlon"><img src="img/twitter.png" width="30px" style="padding-bottom: 1%;"></a>
+  <h1 style="text-align:center">会津大学トライアスロン部<br>活動報告</h1>
+  <select name="year" id="year-select" onchange="check()">
+    <option value="" selected>--&nbsp;閲覧したい報告年度を選択してください&nbsp;--</option>
+    <option value="2023">2023年度</option>
+    <option value="2022">2022年度</option>
+    <option value="2019">2019年度</option>
+    <option value="2018">2018年度</option>
+    <option value="2017">2017年度</option>
+  </select>
+  
+  <? let data_2023 = getDataFromSpreadsheet_2023(); ?>
+  <? let data_2022 = getDataFromSpreadsheet_2022(); ?>
+  <? let data_2019 = getDataFromSpreadsheet_2019(); ?>
+  <? let data_2018 = getDataFromSpreadsheet_2018(); ?>
+  <? let data_2017 = getDataFromSpreadsheet_2017(); ?>
+
+  <ul class="accordion-area">
+      <div id="2023">
+        <? for(let i=1;i<data_2023.length;i++){ ?>
+          <li>
+          <section>
+            <h1 class="title"><?=data_2023[i][0]?></h1>
+            <div class="box" style="white-space: pre-line;">
+              <? let count=1;?>
+              <?for(let j=1;j<4;j++){?>
                 
-            </ul>
-        </nav>
-    </div>
-  </header>
+                <? if(data_2023[i][count]==""){break;} ?>
+                <strong><p>報告<?=j?>&nbsp;<?=data_2023[i][count]?></p></strong>
+                <p><?=data_2023[i][count+1]?></p>
+                <hr>
+                <? count+=2; ?>
+              <?}?>
+            </div>
+          </section>
+          </li>
+        <?}?>
+      </div>
+      <div id="2022">
+        <? for(let i=1;i<data_2022.length;i++){ ?>
+          <li>
+          <section>
+            <h1 class="title"><?=data_2022[i][0]?></h1>
+            <div class="box" style="white-space: pre-line;">
+              <? let count=1;?>
+              <?for(let j=1;j<4;j++){?>
+                
+                <? if(data_2022[i][count]==""){break;} ?>
+                <strong><p>報告<?=j?>&nbsp;<?=data_2022[i][count]?></p></strong>
+                <p><?=data_2022[i][count+1]?></p>
+                <hr>
+                <? count+=2; ?>
+              <?}?>
+            </div>
+          </section>
+          </li>
+        <?}?>
+      </div>
+      <div id="2019">
+        <? for(let i=1;i<data_2019.length;i++){ ?>
+          <li>
+          <section>
+            <h1 class="title"><?=data_2019[i][0]?></h1>
+            <div class="box" style="white-space: pre-line;">
+              <? let count=1;?>
+              <?for(let j=1;j<4;j++){?>
+                
+                <? if(data_2019[i][count]==""){break;} ?>
+                <strong><p>報告<?=j?>&nbsp;<?=data_2019[i][count]?></p></strong>
+                <p><?=data_2019[i][count+1]?></p>
+                <hr>
+                <? count+=2; ?>
+              <?}?>
+            </div>
+          </section>
+          </li>
+        <?}?>
+      </div>
+      <div id="2018">
+        <? for(let i=1;i<data_2018.length;i++){ ?>
+          <li>
+          <section>
+            <h1 class="title"><?=data_2018[i][0]?></h1>
+            <div class="box" style="white-space: pre-line;">
+              <? let count=1;?>
+              <?for(let j=1;j<4;j++){?>
+                
+                <? if(data_2018[i][count]==""){break;} ?>
+                <strong><p>報告<?=j?>&nbsp;<?=data_2018[i][count]?></p></strong>
+                <p><?=data_2018[i][count+1]?></p>
+                <hr>
+                <? count+=2; ?>
+              <?}?>
+            </div>
+          </section>
+          </li>
+        <?}?>
+      </div>
+      <div id="2017">
+        <? for(let i=1;i<data_2017.length;i++){ ?>
+          <li>
+          <section>
+            <h1 class="title"><?=data_2017[i][0]?></h1>
+            <div class="box" style="white-space: pre-line;">
+              <? let count=1;?>
+              <?for(let j=1;j<4;j++){?>
+                
+                <? if(data_2017[i][count]==""){break;} ?>
+                <strong><p>報告<?=j?>&nbsp;<?=data_2017[i][count]?></p></strong>
+                <p><?=data_2017[i][count+1]?></p>
+                <hr>
+                <? count+=2; ?>
+              <?}?>
+            </div>
+          </section>
+          </li>
+        <?}?>
+      </div>
+  </ul>
+ 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+  <script>
+      //アコーディオンをクリックした時の動作
+      $('.title').on('click', function() {//タイトル要素をクリックしたら
+      	var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+      	$(findElm).slideToggle();//アコーディオンの上下動作
+          
+      	if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
+      		$(this).removeClass('close');//クラス名を除去し
+      	}else{//それ以外は
+      		$(this).addClass('close');//クラス名closeを付与
+      	}
+      });
+      
+  </script>
+  <script>
+    const year=document.getElementById("year-select");
+    let year_2023 = document.getElementById("2023");
+    year_2023.style.display = "none";
+    let year_2022 = document.getElementById("2022");
+    year_2022.style.display = "none";
+    let year_2019 = document.getElementById("2019");
+    year_2019.style.display = "none";
+    let year_2018 = document.getElementById("2018");
+    year_2018.style.display = "none";
+    let year_2017 = document.getElementById("2017");
+    year_2017.style.display = "none";
+    function check() {
+        year_2023.style.display = "none";
+        year_2022.style.display = "none";
+        year_2019.style.display = "none";
+        year_2018.style.display = "none";
+        year_2017.style.display = "none";
+        switch (year.value) {
+          case "2023":
+           year_2023.style.display = "block";
+           break;
+          case "2022":
+           year_2022.style.display = "block";
+           break;
+          case "2019":
+           year_2019.style.display = "block";
+           break;
+          case "2018":
+           year_2018.style.display = "block";
+           break;
+          case "2017":
+           year_2017.style.display = "block";
+           break;
+          default:
+           break;
+        }
+    }
 
-    <main>
-        <div class="picture" style="text-align: center;">
-            <img src="img/top2023.jpg" width="65%">
-        </div>
-        
-        <br>
-        <h2>会津大学トライアスロン部とは</h2>
-        <div>
-            <p>開学2年目に作られた歴史のある部です。我々部員はそれぞれの目標をもって活動しています。</p>
-            <p>会津短期大学から選手・マネージャーとして参加してくれている方もいます。</p>
-            <p>会津大学・会津短期大学に入学した皆さん。私たちと一緒に青春を謳歌しませんか？</p>
-            <p>私たちは部員を募集しています。</p>
-            <p>入部を希望する方は<a href="mail.html">こちら</a>へどうぞ。</p>
-        </div>
-        <br>
-        <h2>お知らせ</h2>
-        <div>
-            <li>2023.06.12：&nbsp;&nbsp;&nbsp;<div class="display_PHONE_header"></div><a href="minitora/minitora2023.html"  style="text-decoration: none;"><font color="black">第15回ミニトライアスロン大会in会津大学申込開始</font></a></li>
-            <li>2023.06.28：&nbsp;&nbsp;&nbsp;<div class="display_PHONE_header"></div>サイトリニューアル</li>
-        </div>
-        <br>
-        <!--ここはgoogledriveをiframeする予定-->
-        <!-- <h2>スケジュール</h2>
-        <ul style="font-family: sans-serif">
-            <li>2023.06.20&nbsp;THU&nbsp;&nbsp;スイム練</li>
-            <li>2023.06.21&nbsp;WED&nbsp;&nbsp;休み</li>
-            <li>2023.06.22&nbsp;THU&nbsp;&nbsp;スイム練</li>
-            <li>2023.06.23&nbsp;FRI&nbsp;&nbsp;ラン練</li>
-            <li>2023.06.24&nbsp;SAT&nbsp;&nbsp;バイク練</li>
-        </ul> -->
-        <div class="container">
-            <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="img/instagram.png" width="30px" style="padding-bottom: 1%;"></a><br>
-            <a href="https://twitter.com/aizu_triathlon"><img src="img/twitter.png" width="30px" style="padding-bottom: 1%;"></a><br>
-            <a href="mail.html"><img src="img/mail.png" width="30px" style="padding-bottom: 1%;"></a><br>
-        </div>
-    </main>
-    <div class="display_PC_footer">
-        <iframe src="footer.html" width="100%" height="360px"scrolling="no" frameborder="0"></iframe>
-    </div>
-    <div class="display_PHONE_footer">
-        <h3>会津大学トライアスロン部</h3>
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="about.html">活動</a></li>
-            <li><a href="minitora/minitora2023.html">ミニトライアスロン2023</a></li>
-            <li><a href="member.html">部員</a></li>
-            <li><a href="event.html">年間行事</a></li>
-            <li><a href="blog.html">活動報告</a></li>
-            <li><a href="practice.html">練習</a></li>
-            <li><a href="https://drive.google.com/file/d/1mkalmN-lvBT6-RpK8DEr-Dvu-KuW47Dd/view?usp=drive_link">部員限定</a></li>
-            <li><a href="mail.html">連絡</a></li>
-            <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="img/instagram.png" width="30px" style="padding-bottom: 1%;"></a>&nbsp;
-            <a href="https://twitter.com/aizu_triathlon"><img src="img/twitter.png" width="30px" style="padding-bottom: 1%;"></a>
-        </ul>
-        <p style="background-color: black; color: white;">Copyright © 2023 University of Aizu Triathlon Team, All Rights Reserved.</p>
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/hamburger.js"></script>
-    
-    
-    
-    
-
+  </script>
 </body>
 </html>
