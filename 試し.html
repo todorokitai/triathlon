@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      #year-select {
+        display: block; /* 要素をブロックレベルに表示する */
+        margin: 0 auto; /* 左右のマージンを自動にして、中央に配置する */
+        text-align: center; /* 内容を中央に揃える */
+      }
+      body{
+        background-color: #FFF5EE;
+      }
+      section{
+        background-color:white;
+      }
+        /*アコーディオン全体*/
+        .accordion-area{
+            list-style: none;
+            width: 80%;
+            max-width: 900px;
+            margin:0 auto;
+        }
+
+        .accordion-area li{
+            margin: 10px 0;
+        }
+        
+        .accordion-area section {
+        	border: 1px solid #ccc;
+        }
+        
+        /*アコーディオンタイトル*/
+        .title {
+            position: relative;/*+マークの位置基準とするためrelative指定*/
+            cursor: pointer;
+            font-size:1rem;
+            font-weight: normal;
+            padding: 3% 3% 3% 50px;
+            transition: all .5s ease;
+        }
+        
+        /*アイコンの＋と×*/
+        .title::before,
+        .title::after{
+            position: absolute;
+            content:'';
+            width: 15px;
+            height: 2px;
+            background-color: #333;
+            
+        }
+        .title::before{
+            top:48%;
+            left: 15px;
+            transform: rotate(0deg);
+            
+        }
+        .title::after{    
+            top:48%;
+            left: 15px;
+            transform: rotate(90deg);
+        
+        }
+        /*　closeというクラスがついたら形状変化　*/
+        .title.close::before{
+        	transform: rotate(45deg);
+        }
+        
+        .title.close::after{
+        	transform: rotate(-45deg);
+        }
+        
+        /*アコーディオンで現れるエリア*/
+        .box {
+            display: none;/*はじめは非表示*/
+            background: #F0EDEB;
+            margin:0 3% 3% 3%;
+            padding: 3%;
+        }
+        @media (max-width: 894px) {
+        /* スマホ時の表示に関するスタイル */
+        .accordion-area {
+          margin-left: 0; /* 左マージンを除外 */
+          margin-right: 0; /* 右マージンを除外 */
+          padding-left: 0; /* 左パディングを除外 */
+          padding-right: 0; /* 右パディングを除外 */
+          width: 100%;
+        }
+      }
+    </style>
+</head>
+<body>
+  <? let data = getDataFromSpreadsheetData(); ?>
+  <h1 style="text-align:center">活動報告</h1>
+  
+  <select name="year" id="year-select" onchange="check()">
+    <option value="" selected>--&nbsp;閲覧したい報告年度を選択してください&nbsp;--</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+  </select>
+  
+
+  <ul class="accordion-area">
+        <li id="<?=data[i][0]?>">
+          <div>
+          <section>
+            <h1 class="title"><?=data[i][1]?></h1>
+            <div class="box" style="white-space: pre-line;">
+              <? let count=2;?>
+              <?for(let j=1;j<4;j++){?>
+                <? if(data[i][count]==""){break;} ?>
+                <strong><p>報告<?=j?>&nbsp;<?=data[i][count]?></p></strong>
+                <p><?=data[i][count+1]?></p>
+                <hr>
+                <? count+=2; ?>
+              <?}?>
+            </div>
+          </section>
+        </li>
+      <?}?>
+  </ul>
+ 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+  <script>
+      //アコーディオンをクリックした時の動作
+      $('.title').on('click', function() {//タイトル要素をクリックしたら
+      	var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+      	$(findElm).slideToggle();//アコーディオンの上下動作
+          
+      	if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
+      		$(this).removeClass('close');//クラス名を除去し
+      	}else{//それ以外は
+      		$(this).addClass('close');//クラス名closeを付与
+      	}
+      });
+  </script>
+  <script>
+    const nowYear = new Date().getFullYear();
+    const year_select=document.getElementById("year-select");
+    let year_display=[]
+    let i=0;
+    for(let j=2017;j<=nowYear;j++){
+        if(j==2020||j==2021)continue;
+        year_display[i]=document.getElementById(String(j));
+        year_display[i].style.display="none";
+        console.log(year_display[i].value)
+        i++;
+    }
+    function elseCheck(number){
+        for(let j=0;j<year_display.length;j++){
+            if(year_display[j].value!==number){
+                year_display[j].style.display="none";
+            }
+        }
+    }
+    function check(){
+        for(let j=0;j<year_display.length;j++){
+            if(year_select.value==year_display[j].value){
+                year_display[j].style.display="block";
+                elseCheck(year_display[j].value);
+            }
+        }
+        
+    }
+
+  </script>
+ </body>
+</html>
