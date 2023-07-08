@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: about.html,blog.html,event.html,footer.html,header.html,mail.html,member.html
-Allow: index.html,minitora
