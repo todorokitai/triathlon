@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      #year-select {
+      #year_select {
         display: block; /* 要素をブロックレベルに表示する */
         margin: 0 auto; /* 左右のマージンを自動にして、中央に配置する */
         text-align: center; /* 内容を中央に揃える */
@@ -94,25 +94,23 @@
 <body>
   <? let data = getDataFromSpreadsheetData(); ?>
   <h1 style="text-align:center">活動報告</h1>
-  
-  <select name="year" id="year-select" onchange="check()">
+    <br>
+  <select style="text-align:-webkit-center;" name="year" id="year_select" onchange="check()" >
     <option value="" selected>--&nbsp;閲覧したい報告年度を選択してください&nbsp;--</option>
-    <option value="2017">2017</option>
-    <option value="2018">2018</option>
-    <option value="2019">2019</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
+    <? let id_count=0; ?>
+    <? for(let i=data.length-1;i>0;i--){?>
+      <? if(data[i][0]!==""){ ?>
+       <option value="<?=data[i][0]?>"><?=data[i][0]?><?=data[0][0]?></option>
+      <?}?>
+    <?}?>
   </select>
-  
-
   <ul class="accordion-area">
-        <li id="<?=data[i][0]?>">
-          <div>
+      <? for(let i=1;i<data.length;i++){ ?>
+        <li class="<?=data[i][0]?>">
           <section>
-            <h1 class="title"><?=data[i][1]?></h1>
+            <h1 class="title"><?=data[i][2]?></h1>
             <div class="box" style="white-space: pre-line;">
-              <? let count=2;?>
+              <? let count=3;?>
               <?for(let j=1;j<4;j++){?>
                 <? if(data[i][count]==""){break;} ?>
                 <strong><p>報告<?=j?>&nbsp;<?=data[i][count]?></p></strong>
@@ -140,34 +138,12 @@
       	}
       });
   </script>
+
   <script>
-    const nowYear = new Date().getFullYear();
-    const year_select=document.getElementById("year-select");
-    let year_display=[]
-    let i=0;
-    for(let j=2017;j<=nowYear;j++){
-        if(j==2020||j==2021)continue;
-        year_display[i]=document.getElementById(String(j));
-        year_display[i].style.display="none";
-        console.log(year_display[i].value)
-        i++;
-    }
-    function elseCheck(number){
-        for(let j=0;j<year_display.length;j++){
-            if(year_display[j].value!==number){
-                year_display[j].style.display="none";
-            }
-        }
-    }
-    function check(){
-        for(let j=0;j<year_display.length;j++){
-            if(year_select.value==year_display[j].value){
-                year_display[j].style.display="block";
-                elseCheck(year_display[j].value);
-            }
-        }
-        
-    }
+    const a=document.getElementById("a");
+    const b=document.getElementById("b");
+    console.log(a)
+    console.log(b)
 
   </script>
  </body>
