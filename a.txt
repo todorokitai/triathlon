@@ -1,39 +1,14 @@
-<script>
-    let count=0;
-    function reset(){
-      for(let i=2017;i<=new Date().getFullYear();i++){
-        if(i==2020||i==2021)continue;
-        for(let j=1;j<=30;j++){
-          if(document.getElementById(String(i)+"_"+String(j))){
-            let n= String(i)+"_"+String(j);//2017_1,2017_2みたいなのが作られる。
-            document.getElementById(n).style.display="none";
-            count++;
-          }
-          else{
-            break;
-          }
-        }
-      }
-    }
-    reset();//全てを最初に非表示にする
 
-    var year_select=document.getElementById("year_select");
-    function check(){
-      reset();
-      for(let i=2017;i<=new Date().getFullYear();i++){
-        if(i==2020||i==2021)continue;
-        if(year_select.value==i){
-          for(let j=1;j<=30;j++){
-            if(document.getElementById(String(i)+"_"+String(j))){
-              let n= String(i)+"_"+String(j);//2017_1,2017_2みたいなのが作られる。
-              document.getElementById(n).style.display="block";
-            }
-            else{
-              break;
-            }
-          }
-        }
-      }
-    }
 
-  </script>
+
+
+
+
+
+
+
+
+
+
+
+
