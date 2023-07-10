@@ -1,0 +1,77 @@
+.container {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    text-align: right;
+    padding-right: 20px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400&display=swap');
+body{    
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    background-color: #FFF5EE;
+}
+main {
+    margin:  8px 60px 20px 60px;
+}
+main h2{
+    padding: 0.4em 0.5em;
+    color: #494949;
+    background: #f4f4f4;
+    border-left: solid 5px grey;
+    border-bottom: solid 3px #d7d7d7;
+    margin-bottom: 5px;
+    font-family:"メイリオ", "ヒラギノ角ゴシック";
+}
+.display_PHONE_header,
+.display_PHONE_footer,
+.display_PC_main{
+        display: none;
+}
+@media (max-width: 894px) {/*スマホ時の表示*/
+    .display_PC_header,
+    .display_PC_footer,
+    .container{
+        display: none;
+    }
+    .display_PHONE_header,
+    .display_PHONE_footer,
+    .display_PC_main{
+        display: block;
+    }
+    .display_PHONE_footer{
+        background-color: #F0EDEB;
+    }
+    .display_PHONE_footer a{
+        text-decoration: none;
+        color: #333;
+    }
+    .display_PHONE_footer a:hover{
+        color: red;
+    }
+    .display_PHONE_header{
+        font-size: small;
+    }
+    h1{
+        text-align: center;
+        margin: 5px 15px 0px 0px;
+        padding-top: 10px;
+        background-color: #F0EDEB;
+        float: left;
+        width: 100%;
+        font-size: 23px;
+        
+    }
+    main{
+        padding-top: 60px;
+        margin:  0px 11px 30px 11px;
+    }
+    main h2{
+        font-size: 20px;
+    }
+}
+
+li{
+    list-style-type: none;
+}
