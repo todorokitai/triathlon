@@ -23,6 +23,20 @@
       font-size:0.9em; /* タイトルの文字サイズ */
       background-color: #FFF5EE;
     }
+    .pos_phone{
+        display: none;
+    }
+    
+    /* <div class="pos_pc" ><img src="2023/poster.jpg" width="400" height="566"></div>
+	<div class="pos_phone"><img src="2023/poster.jpg" width="100%"></div> */
+    @media (max-width: 894px) {/*スマホ時の表示*/
+        .pos_pc{
+            display: none;
+        }
+        .pos_phone{
+            display: block;
+        }
+    }
   </style>
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/hamburger.css" rel="stylesheet">
@@ -50,8 +64,8 @@
                 <li><a href="../practice.html">練習</a></li>
                 <li><a href="https://drive.google.com/file/d/1Xu78-sjZSFh0amHnxF2nJsLHufpuVWCn/view?usp=drive_link">部員限定</a></li>
                 <li><a href="../mail.html">連絡</a></li>
-                <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="img/instagram.png" width="30px" style="padding-bottom: 1%;"></a>&nbsp;
-                <a href="https://twitter.com/aizu_triathlon"><img src="img/twitter.png" width="30px" style="padding-bottom: 1%;"></a>
+                <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="../img/instagram.png" width="30px" style="padding-bottom: 1%;"></a>&nbsp;
+                <a href="https://twitter.com/aizu_triathlon"><img src="../img/twitter.png" width="30px" style="padding-bottom: 1%;"></a>
             </ul>
         </nav>
     </header>
@@ -123,7 +137,8 @@
           <font size="5">申し込み開始日は令和5年6月12日(月)です。</font><br>
           <font size="5" color="red">なお、申し込み締め切りは<strong>令和5年9月6日(水)</strong>までとなっています。</font><br>
           <br>
-	  <img src="2023/poster.jpg" width="400" height="566">
+          <div class="pos_pc" ><img src="2023/poster.jpg" width="400" height="566"></div>
+	      <div class="pos_phone"><img src="2023/poster.jpg" width="80%"></div>
         </center>
 
    

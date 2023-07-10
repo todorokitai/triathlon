@@ -6,7 +6,6 @@
     <link rel="icon" href="img/image.png">
     <title>会津大学トライアスロン部</title>
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/hamburger.css" rel="stylesheet">
     <style>
         @media (max-width: 894px) {/*スマホ時の表示*/
             .picture img{
@@ -16,33 +15,13 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="display_PC_header">
-            <iframe src="header.html" width="100%" height="170px" scrolling="no" frameborder="0"></iframe>
-        </div>
-        <div class="display_PHONE_header">
-            <h1>会津大学トライアスロン部</h1>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-        </div>
-        <nav class="globalMenuSp disabled">
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="about.html">活動</a></li>
-                <li><a href="minitora/minitora2023.html">ミニトライアスロン2023</a></li>
-                <li><a href="member.html">部員</a></li>
-                <li><a href="event.html">年間行事</a></li>
-                <li><a href="blog.html">活動報告</a></li>
-                <li><a href="http://web-ext.u-aizu.ac.jp/circles/triathlon/practice/practice.html">練習</a></li>
-                <li><a href="https://drive.google.com/file/d/1Xu78-sjZSFh0amHnxF2nJsLHufpuVWCn/view?usp=drive_link">部員限定</a></li>
-                <li><a href="mail.html">連絡</a></li>
-                <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="img/instagram.png" width="30px" style="padding-bottom: 1%;"></a>&nbsp;
-                <a href="https://twitter.com/aizu_triathlon"><img src="img/twitter.png" width="30px" style="padding-bottom: 1%;"></a>
-            </ul>
-        </nav>
-    </header>
+    <div id="head"></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#head").load("header.html");
+		});
+	</script>
 
     <main>
         <div class="picture" style="text-align: center;">
@@ -51,6 +30,7 @@
         
         <br>
         <h2>会津大学トライアスロン部とは</h2>
+        
         <div>
             <p>開学2年目に作られた歴史のある部です。我々部員はそれぞれの目標をもって活動しています。</p>
             <p>会津短期大学から選手・マネージャーとして参加してくれている方もいます。</p>
@@ -59,51 +39,28 @@
             <p>入部を希望する方は<a href="mail.html">こちら</a>へどうぞ。</p>
         </div>
         <br>
+
         <h2>お知らせ</h2>
         <div>
             <li>2023.06.12：&nbsp;&nbsp;&nbsp;<a href="minitora/minitora2023.html"  style="text-decoration: none;"><font color="black">第15回ミニトライアスロン大会in会津大学申込開始</font></a></li>
             <li>2023.06.28：&nbsp;&nbsp;&nbsp;サイト更新</li>
         </div>
         <br>
-        <!--ここはgoogledriveをiframeする予定-->
-        <!-- <h2>スケジュール</h2>
-        <ul style="font-family: sans-serif">
-            <li>2023.06.20&nbsp;THU&nbsp;&nbsp;スイム練</li>
-            <li>2023.06.21&nbsp;WED&nbsp;&nbsp;休み</li>
-            <li>2023.06.22&nbsp;THU&nbsp;&nbsp;スイム練</li>
-            <li>2023.06.23&nbsp;FRI&nbsp;&nbsp;ラン練</li>
-            <li>2023.06.24&nbsp;SAT&nbsp;&nbsp;バイク練</li>
-        </ul> -->
-        <div class="container">
-            <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="img/instagram.png" width="30px" style="padding-bottom: 1%;"></a><br>
-            <a href="https://twitter.com/aizu_triathlon"><img src="img/twitter.png" width="30px" style="padding-bottom: 1%;"></a><br>
-            <a href="mail.html"><img src="img/mail.png" width="30px" style="padding-bottom: 1%;"></a><br>
-        </div>
+
+        <div id="conta"></div>
+        <script>
+          $(function(){
+		    	$("#conta").load("container.html");
+		  });
+        </script>
     </main>
-    <footer>
-        <div class="display_PC_footer">
-            <iframe src="footer.html" width="100%" height="360px"scrolling="no" frameborder="0"></iframe>
-        </div>
-        <div class="display_PHONE_footer">
-            <h3>会津大学トライアスロン部</h3>
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="about.html">活動</a></li>
-                <li><a href="minitora/minitora2023.html">ミニトライアスロン2023</a></li>
-                <li><a href="member.html">部員</a></li>
-                <li><a href="event.html">年間行事</a></li>
-                <li><a href="blog.html">活動報告</a></li>
-                <li><a href="practice.html">練習</a></li>
-                <li><a href="https://drive.google.com/file/d/1Xu78-sjZSFh0amHnxF2nJsLHufpuVWCn/view?usp=drive_link">部員限定</a></li>
-                <li><a href="mail.html">連絡</a></li>
-                <a href="https://www.instagram.com/aizu_triathlon_m/"><img src="img/instagram.png" width="30px" style="padding-bottom: 1%;"></a>&nbsp;
-                <a href="https://twitter.com/aizu_triathlon"><img src="img/twitter.png" width="30px" style="padding-bottom: 1%;"></a>
-            </ul>
-            <p style="background-color: black; color: white;">Copyright © 2023 University of Aizu Triathlon Team, All Rights Reserved.</p>
-        </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/hamburger.js"></script>
+
+    <div id="foot"></div>
+	<script>
+		$(function(){
+			$("#foot").load("footer.html");
+		});
+	</script>
     
     
     
